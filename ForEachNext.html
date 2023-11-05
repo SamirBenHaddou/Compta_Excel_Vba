@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="Macros"
-      content="Ensemble de macros utiles permettant d'automatiser de nombreuses tâches"
-    />
+    <meta name="viewport" content="macros vba utiles" />
     <link href="style.css" rel="stylesheet" />
     <title>Vba Excel</title>
   </head>
@@ -14,13 +11,11 @@
   <body>
     <header>
       <img src="excel_vba.png" alt="macros vba" />
-      <h1>Macros utiles VBA</h1>
+      <h1>Les boucles</h1>
     </header>
     <nav>
       <ul>
-        <li>
-          <a href="index.html"><b>Accueil</b></a>
-        </li>
+        <li><a href="index.html">Accueil</a></li>
         <li>
           ➧ Suppression de lignes
           <ul class="sous_menus">
@@ -88,7 +83,7 @@
           ><li>Déprotéger un fichier ou un classeur</li></a
         >
         <li>
-          ➧ Les Boucles
+          <b>➧ Les Boucles</b>
           <ul class="sous_menus">
             <a href="Do_While.html"><li>Do While</li></a>
             <a href="Do_Until.html"><li>Do Until</li></a>
@@ -188,36 +183,35 @@
         </li>
       </ul>
     </nav>
+    <h2>For Each...Next</h2>
     <div>
       <p>
-        Ce site a pour but de répertorier un ensemble de macros utiles qui vous
-        permettent d'optimiser votre travail sur excel au quotidien
+        Cette macro permet d'exécuter une boucle. La boucle For Each...Next
+        répète un groupe d'instructions pour chaque élément d'une collection :
+        <br />
       </p>
-      <br />
-      <h2>Mais qu'est ce qu'une macro VBA ?</h2>
-      <br />
-      <p>
-        Une macro c’est un ensemble de lignes de code qui contiennent des
-        instructions. Ces instructions vont être interprétées par Excel pour
-        réaliser des tâches diverses : opérations mathématiques, opérations sur
-        des feuilles de calculs, opérations sur des fichiers... Ces instructions
-        seront toujours interprétées de la même manière et de plus, le travail
-        se réalisera beaucoup plus vite que si vous deviez refaire vous-même la
-        même tâche plusieurs fois. Le langage utilisé pour coder ces
-        instructions est le VBA (Visual Basic for Application).
-      </p>
-      <br />
-      <h2>Avantages des macros</h2>
-      <p>
-        Il y a plusieurs avantages à concevoir une macro. Tout d’abord, le
-        programme fera et refera les instructions toujours dans le même ordre.
-        Une macro vous garantit donc l’intégrité de votre travail. Et plus
-        encore, un programme va vous apporter un gain de temps dans l’exécution
-        des tâches. Imaginez que vous ayez à travailler sur un fichier d’un
-        millier de données. Pour traiter ce fichier manuellement, vous pouvez
-        avoir besoin de trois ou quatre heures alors que si vous utilisez une
-        macro, trois ou quatre secondes suffiront à traiter les données.
-      </p>
+
+      <pre>
+
+        Sub test()
+        Dim Cellule As Range
+        'Set Cellule = Range("A1:A6")
+        For Each Cellule In Worksheets("Feuil1").Range("A1:A20")
+        If Cellule > 2 Then
+        Cellule.Select
+            With Selection.Interior
+                .Pattern = xlSolid
+                .PatternColorIndex = xlAutomatic
+                .Color = 254
+                .TintAndShade = 0
+                .PatternTintAndShade = 0
+            End With
+        End If
+        Next
+        End Sub
+        
+        </pre
+      >
     </div>
     <footer>
       <div>&copy Samir BEN HADDOU 2021</div>
