@@ -14,3 +14,5 @@ Menu modifiable en une seule fois au lieu de modifier chaque page
 Mise en subrillances auto du menu courant
 
 Ajout d'une feuille de contact et création d'un forum
+
+Ajout macro api connection
