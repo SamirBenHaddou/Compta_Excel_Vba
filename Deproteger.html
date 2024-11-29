@@ -199,7 +199,7 @@
         Dim Reponse As Byte, Temps As Variant
         Dim Cible As Object, Passe As String
         ' Demande ce qu'il faut déprotéger.
-        Reponse = MsgBox("Voulez-vous déprotéger le classeur actif ?" & vbCrLf & _
+        Reponse = MsgBox("Voulez-vous déprotéger le classeur actif ?" &amp; vbCrLf &amp _
         "Si vous répondez non, c'est la feuille active qui sera déprotégée. ", _
         vbYesNoCancel, "Déprotectionnateur")
         On Error Resume Next
@@ -210,8 +210,8 @@
         Set Cible = ActiveWorkbook
         ' Teste si le classeur est protégé.
         If Not (Cible.ProtectStructure Or Cible.ProtectWindows) Then
-        MsgBox "Le classeur actif n'est pas protégé. " & vbCrLf & _
-        vbCrLf & "Andouille !", vbOKOnly, "Déprotectionnateur"
+        MsgBox "Le classeur actif n'est pas protégé. " &amp vbCrLf &amp _
+        vbCrLf &amp "Andouille !", vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End If
         ' Teste si le classeur est protégé sans mot de passe.
@@ -219,7 +219,7 @@
         Cible.Unprotect vbNullString
         If Err = 0 Then
         MsgBox "La protection du classeur actif a été supprimée. " _
-        & vbCrLf & "Il n'y avait pas de mot de passe. Petit rigolo !", _
+        &amp vbCrLf &amp "Il n'y avait pas de mot de passe. Petit rigolo !", _
         vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End If
@@ -230,8 +230,8 @@
         ' et n'est pas enregistré avec le classeur).
         If Not (Cible.ProtectContents Or Cible.ProtectDrawingObjects Or _
         Cible.ProtectScenarios) Then
-        MsgBox "La feuille active n'est pas protégée. " & vbCrLf & _
-        vbCrLf & "Patate !", vbOKOnly, "Déprotectionnateur"
+        MsgBox "La feuille active n'est pas protégée. " &amp vbCrLf &amp _
+        vbCrLf &amp "Patate !", vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End If
         ' Teste si la feuille est protégée sans mot de passe.
@@ -239,13 +239,13 @@
         Cible.Unprotect vbNullString
         If Err = 0 Then
         MsgBox "La protection de la feuille active a été supprimée. " _
-        & vbCrLf & "Il n'y avait pas de mot de passe. Quelle burne !", _
+        &amp vbCrLf &amp "Il n'y avait pas de mot de passe. Quelle burne !", _
         vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End If
         Case Else
         ' Annulation demandée par l'utilisateur.
-        MsgBox String(14, " ") & "Ciao !", vbOKOnly, "Déprotectionnateur"
+        MsgBox String(14, " ") &amp "Ciao !", vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End Select
         ' Note l'instant de départ.
@@ -267,19 +267,19 @@
         For N = 48 To 49
         For O = 48 To 49
         ' Calcule le mot de passe.
-        Passe = Chr(A) & Chr(B) & Chr(C) & Chr(D) & Chr(E) & _
-        Chr(F) & Chr(G) & Chr(H) & Chr(I) & Chr(J) & _
-        Chr(K) & Chr(L) & Chr(M) & Chr(N) & Chr(O)
+        Passe = Chr(A) &amp Chr(B) &amp Chr(C) &amp Chr(D) &amp Chr(E) &amp _
+        Chr(F) &amp Chr(G) &amp Chr(H) &amp Chr(I) &amp Chr(J) &amp _
+        Chr(K) &amp Chr(L) &amp Chr(M) &amp Chr(N) &amp Chr(O)
         ' Essaie de déprotéger la cible.
         Err.Clear
         Cible.Unprotect Passe
         ' Teste si la cible est bien déprotégé.
         If Err = 0 Then
         ' Si oui, affiche le mot de passe et sort.
-        MsgBox "La protection a été supprimée en " & _
-        Timer - Temps & " secondes. " & vbCrLf & _
-        "Le mot de passe équivalent trouvé est :" & _
-        vbCrLf & vbCrLf & String(28, " ") & Passe, _
+        MsgBox "La protection a été supprimée en " &amp _
+        Timer - Temps &amp " secondes. " &amp vbCrLf &amp _
+        "Le mot de passe équivalent trouvé est :" &amp _
+        vbCrLf &amp vbCrLf &amp String(28, " ") &amp Passe, _
         vbOKOnly, "Déprotectionnateur"
         Exit Sub
         End If
@@ -299,7 +299,7 @@
         Next
         Next
         ' Message impossible à atteindre.
-        MsgBox "Mot de passe introuvable." & vbCrLf & vbCrLf & _
+        MsgBox "Mot de passe introuvable." &amp vbCrLf &amp vbCrLf &amp _
         "C'est pas normal !!!", vbOKOnly, "Déprotectionnateur"
         End Sub
         
