@@ -7,7 +7,10 @@ permettent d'optimiser votre travail sur excel au quotidien
 Technologie :
 HTML, CSS
 
-Statut du projet : Terminé
+Statut du projet :
+
+Terminé
+Mise en ligne via Github pages
 
 Améliorations :
 
